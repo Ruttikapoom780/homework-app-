@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แอปแจ้งการบ้าน</title>
+  
+  <!-- ลิงก์ PWA -->
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- สีธีมของแอป -->
+  <meta name="theme-color" content="#4F46E5">
+  
+  <!-- ใส่ CSS ของคุณถ้ามี -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>แอปแจ้งการบ้าน</h1>
+  <p>ยินดีต้อนรับ! แอปนี้แจ้งเตือนการบ้านจาก Canva</p>
+
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service Worker registered', reg))
+          .catch(err => console.log('Service Worker registration failed', err));
+      });
+    }
+  </script>
+</body>
+</html>
